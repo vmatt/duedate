@@ -35,7 +35,6 @@ function CalculateDueDate(submitTime, tat) {
   } else if (tat == remainingHoursFirstDay) {
     //jump to the last hour
     dueTime.unix += oneHour * (tat - 1);
-    //ugrunk egy napot előre, majd levonunk 7 munkaórát, hogy megkapjuk a kezdési időpontot
     //jump a day further, then substract 7 workhours, to get the work start hour (9am)
     dueTime.unix += oneDay - (oneHour * 7);
   } else if (tat > remainingHoursFirstDay) {
