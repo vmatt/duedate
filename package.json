@@ -1,0 +1,31 @@
+{
+  "name": "emarsys",
+  "version": "0.1.0",
+  "description": "Emarsys DueDate Calculator API",
+  "main": "index.js",
+  "scripts": {
+    "test": "dueTest",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmatt/duedate.git"
+  },
+  "author": "Mate Valko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vmatt/duedate/issues"
+  },
+  "homepage": "https://github.com/vmatt/duedate#readme",
+  "devDependencies": {
+    "express": "^4.15.3",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-notify": "^3.0.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
