@@ -22,7 +22,7 @@ function getInput(req, res) {
 
 function CalculateDueDate(submitTime, tat) {
   // When i first try to modify the dueTime.unix prop, it changes the submitTime.unix prop too. Found the "clone" solution on stackoverflow.
-  let dueTime = submitTime;
+  var dueTime = clone(submitTime);
   var hoursLeft = 0;
   var daysLeft = 0;
   var remainingHoursFirstDay = 17 - dueTime.hour;
@@ -117,16 +117,3 @@ function createTimeObject(unixdate) {
 app.use('/dueapi/submitTime/:st/TAT/:tat', getInput);
 app.listen(port);
 console.log('The DueDate Calculator RESTful API listening on port: ' + port);
-
-// //Because we can't finish the job in the first day, first we jump to the start hour of the day (minutes stays).
-// dueTime.unix -= oneHour * beforeHoursFirstDay;
-// //we calculate the
-// hoursLeft = tat - remainingHoursFirstDay;
-// daysLeft = Math.floor(hoursLeft / 8) + 1;
-// lastDayHours = hoursLeft % 8;
-// while (daysLeft > 0) {
-//   dueTime.unix += oneDay + (lastDayHours * oneHour);
-//   dueTime = createTimeObject(dueTime.unix);
-//   if (dueTime.day != 0 && dueTime.day != 6)
-//     daysLeft--;
-//   }
