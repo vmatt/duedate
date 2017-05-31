@@ -1,5 +1,5 @@
 # DueDateCalculator RESTful API
-A simple RESTful app, that calculates TurnAroundTime with the use of a inputTime, and maxWorkHours parameters. The app is listening on port 3000. 
+A simple RESTful app, that calculates TurnAroundTime with the use of a submitTime, and TurnAroundTime parameters. The app is listening on port 3000. 
 
 ## Usage
 ``` http://ip:3000/dueapi/submitTime/:st/TAT/:tat```
