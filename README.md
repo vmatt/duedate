@@ -4,6 +4,7 @@ A simple RESTful app, that calculates TurnAroundTime with the use of a submitTim
 ## Usage
 ``` http://ip:3000/dueapi/submitTime/:st/TAT/:tat```
 Where ":st" (submitTime) is a prevorious UNIX time (in **seconds**), ":tat" is the available work hours.
+The server time must be set to the same TimeZone.
 
 ## Response
 ```
