@@ -1,5 +1,4 @@
 "use strict";
-var errorHandler = require('./errorHandler.js')
 class dueDateCalculator {
 	constructor(serverRequest) {
 		this.oneDay = 86400000;
@@ -50,23 +49,17 @@ class dueDateCalculator {
 	}
 
 	validateInputs(inputTime, tat) {
-		var errorCases = [];
-		if (isNaN(inputTime)||inputTime.length!=10) errorCases.push(0);
-		else if (isNaN(tat)) errorCases.push(1);
+		if (isNaN(inputTime)||inputTime.length!=10) throw "The submitTime value is not valid UNIX time. You give it in seconds?";
+		else if (isNaN(tat)) throw "The TAT value is not a number! Use only numbers, that represent hours."
 		else {
 				var submitTime = new Date(inputTime * 1000);
 				submitTime = this.createTimeObject(submitTime);
 				var submitTimeIsEarlier = this.cd.getTime() <= submitTime.unix;
-				if (submitTimeIsEarlier) errorCases.push(2);
-				else if (submitTime.hour < 9 || submitTime.hour > 16) errorCases.push(3);
-				else if (submitTime.day == 0 || submitTime.day == 6) errorCases.push(4);
+				if (submitTimeIsEarlier) throw "The Time is invalid. The Date is future date.";
+				else if (submitTime.hour < 9 || submitTime.hour > 16) throw "A problem can only be reported during working hours.";
+				else if (submitTime.day == 0 || submitTime.day == 6) throw "A problem can only be reported during working days.";
 				else return submitTime;
 			}
-		if (errorCases!="") {
-			errorCases = new errorHandler(errorCases);
-			console.log(errorCases);
-			this.returnJSON = errorCases;
-		}
 	}
 
 	createTimeObject(unixdate) {
