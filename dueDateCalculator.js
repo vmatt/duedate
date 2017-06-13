@@ -1,8 +1,8 @@
 /**********************/
 /****BusinessCode*****/
 /********************/
-"use strict";
-const ONEDAY = 86400000,
+
+var ONEDAY = 86400000,
     ONEHOUR = 3600000;
 
 class dueDateCalculator {
